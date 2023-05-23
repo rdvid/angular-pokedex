@@ -1,0 +1,7 @@
+{
+  "name": "angular-podekex",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
