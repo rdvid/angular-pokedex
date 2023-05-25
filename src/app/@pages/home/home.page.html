@@ -1,0 +1,19 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-title>Pokemon</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Pokemon..."></ion-searchbar>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item *ngFor="let pokemon of pokemons" >
+      <pokemon-card></pokemon-card>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+  
+</ion-content>
