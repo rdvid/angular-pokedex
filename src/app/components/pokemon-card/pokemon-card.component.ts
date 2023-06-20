@@ -9,7 +9,7 @@ import { PokedexService } from 'src/app/services/pokedex.service';
 export class PokemonCardComponent implements OnInit {
 
   constructor(private pokedex: PokedexService) { }
-
+  
   ngOnInit() {}
 
 }

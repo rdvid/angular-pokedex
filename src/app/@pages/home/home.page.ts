@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PokedexService } from 'src/app/services/pokedex.service';
+import { Pokemon } from 'src/app/interface/pokemon';
 
 @Component({
   selector: 'app-home',
@@ -6,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  public pokemons:number[] = [];
 
-  constructor() { 
-    this.pokemons.push(1)
-  }
+  constructor(public pokedex: PokedexService) {}
 
   ngOnInit() {
+    this.pokedex.loadPokemons();
   }
 
 }

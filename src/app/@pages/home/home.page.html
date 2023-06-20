@@ -7,8 +7,17 @@
   </ion-toolbar>
 
   <ion-list>
-    <ion-item *ngFor="let pokemon of pokemons" >
-      <pokemon-card></pokemon-card>
+    <ion-item *ngFor="let pokemon of pokedex.pokemons" >
+      <ion-card>
+        <ion-card-header>{{pokemon.id}}</ion-card-header>
+        <ion-title>{{pokemon.name}}</ion-title>
+        <ion-card-content>
+          <ion-img
+            src="{{pokemon.sprites['front_default']}}"
+            alt="something"
+          ></ion-img>
+        </ion-card-content>
+      </ion-card>
     </ion-item>
   </ion-list>
 
