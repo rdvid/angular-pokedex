@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Pokemon, PokemonClass } from 'src/app/interface/pokemon';
@@ -8,7 +8,7 @@ import { Observable, map } from 'rxjs';
 })
 export class PokedexService{
 
-  public pokemons: Pokemon[] = [];
+  public pokemons: PokemonClass[] = [];
   public pokemonsUrls: string[] = [];
 
   constructor(private http: HttpClient) {
@@ -34,7 +34,7 @@ export class PokedexService{
       .subscribe((data) => {
         let pokemon = new PokemonClass(data)
         console.log(pokemon)
-        this.pokemons.push(data)
+        this.pokemons.push(pokemon)
       }, (err: Error) => {
         console.log(err)
       })
@@ -42,9 +42,12 @@ export class PokedexService{
 
   loadPokemons(){
     for(let url of this.pokemonsUrls){
-      console.log(url)
       this.loadPokemonByUrl(url)
     }
+  }
+
+  searchPokemon(inputValue: string) {
+    const params = new HttpParams().append('pokemon', inputValue)
   }
 
 }

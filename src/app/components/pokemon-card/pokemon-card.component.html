@@ -1,6 +1,21 @@
 <ion-card>
-  <ion-card-header>teste</ion-card-header>
-  <ion-card-content>
-    testes
+  <ion-card-header class="ion-text-center">{{pokemonName}}</ion-card-header>
+  <ion-card-content class="ion-justify-content-center">
+    <ion-grid class="ion-">
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-justify-content-center">
+          <ion-img 
+            src={{pokemonImage}}
+            alt={{pokemonName}}
+            >
+          </ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-col *ngFor="let type of pokemonTypesArray" size="6">
+          <ion-chip [outline]="true">{{type}}</ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card-content>
 </ion-card>

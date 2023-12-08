@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PokedexService } from 'src/app/services/pokedex.service';
 
 @Component({
@@ -8,8 +8,15 @@ import { PokedexService } from 'src/app/services/pokedex.service';
 })
 export class PokemonCardComponent implements OnInit {
 
+  @Input() pokemonName = '';
+  @Input() pokemonImage = '';
+  @Input() pokemonTypes = '';
+  pokemonTypesArray: string[] = [''];
+
   constructor(private pokedex: PokedexService) { }
   
-  ngOnInit() {}
+  ngOnInit() {
+    this.pokemonTypesArray = this.pokemonTypes.split(',')
+  }
 
 }
