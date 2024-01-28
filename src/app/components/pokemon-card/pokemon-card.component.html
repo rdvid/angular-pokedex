@@ -1,12 +1,18 @@
 <ion-card>
   <ion-card-header class="ion-text-center">{{pokemonName}}</ion-card-header>
   <ion-card-content class="ion-justify-content-center">
-    <ion-grid class="ion-">
+    <ion-grid>
       <ion-row class="ion-justify-content-center">
         <ion-col class="ion-justify-content-center">
-          <ion-img 
+          <ion-img when="lg"
             src={{pokemonImage}}
             alt={{pokemonName}}
+            >
+          </ion-img>
+          <ion-img when="sm"
+            src={{pokemonImage}}
+            alt={{pokemonName}}
+            width=150
             >
           </ion-img>
         </ion-col>

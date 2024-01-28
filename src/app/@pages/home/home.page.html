@@ -11,10 +11,13 @@
   <!-- mobile grid -->
   <ion-grid when="sm" class="ion-hide-md-up">
     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-lg="2">
-        <pokemon-card></pokemon-card>
-        <pokemon-card></pokemon-card>
-        <pokemon-card></pokemon-card>
+      <ion-col size="12" *ngFor="let pokemon of pokedex.pokemons">
+        <pokemon-card 
+            pokemonName={{pokemon.name}}
+            pokemonImage={{pokemon.sprite}}
+            pokemonTypes={{pokemon.types}}
+          >
+        </pokemon-card>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -2,7 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Pokemon, PokemonClass } from 'src/app/interface/pokemon';
-import { Observable, map } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +14,13 @@ export class PokedexService{
   public pokemonsUrls: string[] = [];
 
   constructor(private http: HttpClient) {
-    this.getPokemonsUrl()
+    // let pokemons = localStorage.getItem('pokemons');
+    // if(pokemons){
+    //   this.pokemons = JSON.parse(pokemons);
+    //   console.log(JSON.parse(pokemons))
+    // }else{
+      this.getPokemonsUrl();
+    // }
   }
 
   getPokemonsUrl(){
@@ -21,9 +29,8 @@ export class PokedexService{
         return pokemons['results']
       }))
       .subscribe((pokemonUrls:any[])=>{
-        pokemonUrls.forEach(pokemonUrl => {
-          this.loadPokemonByUrl(pokemonUrl.url)
-        });
+        pokemonUrls.forEach(pokemonUrl => this.loadPokemonByUrl(pokemonUrl.url));
+        // localStorage.setItem('pokemons', JSON.stringify(this.pokemons));
       }, (err) => {
         console.log(err)
       });
@@ -33,7 +40,6 @@ export class PokedexService{
     this.http.get<Pokemon>(pokemonUrl)
       .subscribe((data) => {
         let pokemon = new PokemonClass(data)
-        console.log(pokemon)
         this.pokemons.push(pokemon)
       }, (err: Error) => {
         console.log(err)
