@@ -1,6 +1,6 @@
 
 <ion-toolbar>
-  <ion-title class="ion-text-center">Pokemon</ion-title>
+  <ion-title when="lg" class="ion-text-center ion-hide-md-down">Pokemon</ion-title>
 </ion-toolbar>
 <ion-toolbar class="ion-padding-horizontal ion-padding-bottom"> 
   <ion-searchbar placeholder="Pokemon..."></ion-searchbar>
@@ -25,14 +25,11 @@
   <!-- desktop grid -->
   <ion-grid when="lg" class="ion-hide-md-down">
     <ion-row class="ion-justify-content-center" >
-      <ion-col size="2" *ngFor="let pokemon of pokedex.pokemons">
+      <ion-col size="3" *ngFor="let pokemon of pokedex.pokemons">
         <pokemon-card 
             pokemonName={{pokemon.name}}
             pokemonImage={{pokemon.sprite}}
-            pokemonTypes={{pokemon.types}}
-          >
-        </pokemon-card>
-        
+            pokemonTypes={{pokemon.types}} />
       </ion-col>
     </ion-row>
   </ion-grid>

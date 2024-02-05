@@ -8,15 +8,20 @@ import { PokedexService } from 'src/app/services/pokedex.service';
 })
 export class PokemonCardComponent implements OnInit {
 
-  @Input() pokemonName = '';
-  @Input() pokemonImage = '';
-  @Input() pokemonTypes = '';
-  pokemonTypesArray: string[] = [''];
+  @Input() pokemonName: string = '';
+  @Input() pokemonImage: string = '';
+  @Input() pokemonTypes: string = '';
+  pokemonTypesArray: string[] = [];
 
   constructor(private pokedex: PokedexService) { }
   
   ngOnInit() {
-    this.pokemonTypesArray = this.pokemonTypes.split(',')
+    this.pokemonTypesArray = this.pokemonTypes.split(',');
   }
+
+  getTypeChipColor(type:string){
+    return `var(--${type}-color)`
+  }
+
 
 }

@@ -1,25 +1,24 @@
-<ion-card>
-  <ion-card-header class="ion-text-center">{{pokemonName}}</ion-card-header>
+<ion-card >
+  <ion-card-header class="ion-text-center">
+    <ion-card-title class="ion-padding-top">{{pokemonName}}</ion-card-title>
+  </ion-card-header>
   <ion-card-content class="ion-justify-content-center">
     <ion-grid>
       <ion-row class="ion-justify-content-center">
         <ion-col class="ion-justify-content-center">
-          <ion-img when="lg"
+          <ion-img
             src={{pokemonImage}}
             alt={{pokemonName}}
-            >
-          </ion-img>
-          <ion-img when="sm"
-            src={{pokemonImage}}
-            alt={{pokemonName}}
-            width=150
-            >
+            width="150">
           </ion-img>
         </ion-col>
       </ion-row>
       <ion-row class="ion-justify-content-center">
-        <ion-col *ngFor="let type of pokemonTypesArray" size="6">
-          <ion-chip [outline]="true">{{type}}</ion-chip>
+        <ion-col class="ion-text-center" size="12">
+          <ion-chip *ngFor="let type of pokemonTypesArray" 
+                    [style.background]="getTypeChipColor(type)">
+                    {{type}}
+          </ion-chip>
         </ion-col>
       </ion-row>
     </ion-grid>
