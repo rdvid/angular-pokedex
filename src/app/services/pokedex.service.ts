@@ -8,19 +8,15 @@ import { Observable, map, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PokedexService{
+export class PokedexService {
 
   public pokemons: PokemonClass[] = [];
   public pokemonsUrls: string[] = [];
 
   constructor(private http: HttpClient) {
-    // let pokemons = localStorage.getItem('pokemons');
-    // if(pokemons){
-    //   this.pokemons = JSON.parse(pokemons);
-    //   console.log(JSON.parse(pokemons))
-    // }else{
-      this.getPokemonsUrl();
-    // }
+    
+    this.getPokemonsUrl();
+    
   }
 
   getPokemonsUrl(){
@@ -30,7 +26,7 @@ export class PokedexService{
       }))
       .subscribe((pokemonUrls:any[])=>{
         pokemonUrls.forEach(pokemonUrl => this.loadPokemonByUrl(pokemonUrl.url));
-        // localStorage.setItem('pokemons', JSON.stringify(this.pokemons));
+        
       }, (err) => {
         console.log(err)
       });
@@ -38,11 +34,14 @@ export class PokedexService{
 
   loadPokemonByUrl(pokemonUrl: string){
     this.http.get<Pokemon>(pokemonUrl)
-      .subscribe((data) => {
-        let pokemon = new PokemonClass(data)
-        this.pokemons.push(pokemon)
-      }, (err: Error) => {
-        console.log(err)
+      .subscribe({
+        next: data => {
+          let pokemon = new PokemonClass(data)
+          this.pokemons.push(pokemon)
+        },
+        error: err => {
+          console.log(err)
+        }
       })
   }
 
@@ -56,4 +55,11 @@ export class PokedexService{
     const params = new HttpParams().append('pokemon', inputValue)
   }
 
+  searchPokemonByName(name: string){
+    let arrayOfPokemonsUrl = [];
+
+    
+  }
+
 }
+// https://pokeapi.co/api/v2/pokemon-species/?offset=151&limit=151"

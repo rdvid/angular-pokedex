@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { HomePage } from './@pages/home/home.page';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchbarComponent } from './components/searchbar/searchbar/searchbar.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePage, PokemonCardComponent],
+  declarations: [AppComponent, HomePage, PokemonCardComponent, SearchbarComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

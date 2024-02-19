@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { PokemonCardComponent } from 'src/app/components/pokemon-card/pokemon-card.component';
+import { SearchbarComponent } from 'src/app/components/searchbar/searchbar/searchbar.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { PokemonCardComponent } from 'src/app/components/pokemon-card/pokemon-ca
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, PokemonCardComponent]
+  declarations: [HomePage, PokemonCardComponent, SearchbarComponent]
 })
 export class HomePageModule {}

@@ -1,9 +1,7 @@
 
-<ion-toolbar>
-  <ion-title when="lg" class="ion-text-center ion-hide-md-down">Pokemon</ion-title>
-</ion-toolbar>
-<ion-toolbar class="ion-padding-horizontal ion-padding-bottom"> 
-  <ion-searchbar placeholder="Pokemon..."></ion-searchbar>
+
+<ion-toolbar class="ion-padding"> 
+  <search-bar (ionInput)="handleTextChange($event)" />
 </ion-toolbar>
 
 <ion-content>
@@ -11,7 +9,7 @@
   <!-- mobile grid -->
   <ion-grid when="sm" class="ion-hide-md-up">
     <ion-row class="ion-justify-content-center">
-      <ion-col size="12" *ngFor="let pokemon of pokedex.pokemons">
+      <ion-col size="12" *ngFor="let pokemon of pokedexService.pokemons">
         <pokemon-card 
             pokemonName={{pokemon.name}}
             pokemonImage={{pokemon.sprite}}
@@ -25,7 +23,7 @@
   <!-- desktop grid -->
   <ion-grid when="lg" class="ion-hide-md-down">
     <ion-row class="ion-justify-content-center" >
-      <ion-col size="3" *ngFor="let pokemon of pokedex.pokemons">
+      <ion-col size="3" *ngFor="let pokemon of pokedexService.pokemons">
         <pokemon-card 
             pokemonName={{pokemon.name}}
             pokemonImage={{pokemon.sprite}}

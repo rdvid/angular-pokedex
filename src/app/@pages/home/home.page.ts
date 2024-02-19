@@ -9,10 +9,14 @@ import { Pokemon } from 'src/app/interface/pokemon';
 })
 export class HomePage implements OnInit {
 
-  constructor(public pokedex: PokedexService) {}
+  constructor(public pokedexService: PokedexService) {}
 
   ngOnInit() {
-    this.pokedex.loadPokemons();
+    this.pokedexService.loadPokemons();
+  }
+
+  handleTextChange(e: any){
+   this.pokedexService.searchPokemonByName(e.target.value)
   }
 
 }
