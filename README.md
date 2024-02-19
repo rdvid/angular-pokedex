@@ -1,12 +1,14 @@
 <h1 align="center">Angular Pokedex</h1>
 
+<div align="center">
+  
 ![Angular](https://img.shields.io/badge/Angular-000000?style=for-the-badge&logo=angular&logoColor=red)
 ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Ionic](https://img.shields.io/badge/Ionic-000000?style=for-the-badge&logo=ionic&logoColor=white)
 ![Karma](https://img.shields.io/badge/Karma-38B2AC?style=for-the-badge&logo=karma&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-000000?style=for-the-badge&logo=playwright&logoColor=white)
 ![Eslint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
-
+</div>
 <p align="center">
    <img height=500 width=500 src="https://f005.backblazeb2.com/file/debbuggers/_43f65027-0046-434c-9d77-3f9563b380ad.jpg" alt="dark mage surrounded by dark pokemons">  
 </p>
