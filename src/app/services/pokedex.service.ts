@@ -13,10 +13,10 @@ export class PokedexService {
   public pokemons: PokemonClass[] = [];
   public pokemonsUrls: string[] = [];
 
+  public selectedPokemon: PokemonClass | undefined;
+
   constructor(private http: HttpClient) {
-    
     this.getPokemonsUrl();
-    
   }
 
   getPokemonsUrl(){
@@ -59,6 +59,12 @@ export class PokedexService {
     let arrayOfPokemonsUrl = [];
 
     
+  }
+
+  async selectPokemonById(id: number){
+    this.selectedPokemon = this.pokemons.find((pokemon) => {
+      pokemon.id === id
+    });
   }
 
 }
