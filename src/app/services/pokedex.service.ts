@@ -63,7 +63,7 @@ export class PokedexService {
 
   async selectPokemonById(id: number){
     this.selectedPokemon = this.pokemons.find((pokemon) => {
-      pokemon.id === id
+      return pokemon.id === id;
     });
   }
 

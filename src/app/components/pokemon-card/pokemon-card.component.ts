@@ -16,7 +16,10 @@ export class PokemonCardComponent implements OnInit {
   @Input() pokemonTypes: string = '';
   pokemonTypesArray: string[] = [];
 
-  constructor(private pokedex: PokedexService, private modalCtrl: ModalController) { }
+  constructor(
+    private pokedex: PokedexService, 
+    private modalCtrl: ModalController
+  ) { }
   
   ngOnInit() {
     this.pokemonTypesArray = this.pokemonTypes.split(',');
@@ -26,14 +29,24 @@ export class PokemonCardComponent implements OnInit {
     return `var(--${type}-color)`
   }
 
-  async openModal(id:string){
+  async openModal(){
+    console.log(this.pokemonId)
+    let pokemon = this.pokedex.pokemons.find((pokemon) => {
+        return pokemon.id === Number(this.pokemonId);
+    });
+    
+    if(!pokemon){
+      throw Error('unable to keep going')
+    }
 
     const modal = await this.modalCtrl.create({
       component: PokemonModalComponent,
+      componentProps: {
+        pokemon: pokemon
+      }
     });
     
-    await this.pokedex.selectPokemonById(Number(id));
-    modal.present();
+    await modal.present();
 
   }
 

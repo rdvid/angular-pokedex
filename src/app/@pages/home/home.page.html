@@ -11,6 +11,7 @@
     <ion-row class="ion-justify-content-center">
       <ion-col size="12" *ngFor="let pokemon of pokedexService.pokemons">
         <pokemon-card 
+            pokemonId={{pokemon.id}}
             pokemonName={{pokemon.name}}
             pokemonImage={{pokemon.sprite}}
             pokemonTypes={{pokemon.types}}
@@ -25,6 +26,7 @@
     <ion-row class="ion-justify-content-center" >
       <ion-col size="3" *ngFor="let pokemon of pokedexService.pokemons">
         <pokemon-card 
+            pokemonId={{pokemon.id}}
             pokemonName={{pokemon.name}}
             pokemonImage={{pokemon.sprite}}
             pokemonTypes={{pokemon.types}} />

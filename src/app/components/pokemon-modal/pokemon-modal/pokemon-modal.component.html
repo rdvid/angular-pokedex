@@ -3,14 +3,15 @@
     <ion-buttons slot="start">
       <ion-button color="medium" (click)="dismissModal()">Cancel</ion-button>
     </ion-buttons>
-    <ion-title *ngIf="pokedex.selectedPokemon">{{pokedex.selectedPokemon.name}}</ion-title>
+    <ion-title>{{pokemon.name}}</ion-title>
     <ion-buttons slot="end">
       <!-- <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button> -->
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" color="getBgColor(pokemon.types[0])">
   <ion-item>
+
     <!-- <ion-input labelPlacement="stacked" label="Enter your name" [(ngModel)]="name" placeholder="Your name"></ion-input> -->
   </ion-item>
 </ion-content>

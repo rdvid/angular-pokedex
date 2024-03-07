@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { PokemonClass } from 'src/app/interface/pokemon';
 import { PokedexService } from 'src/app/services/pokedex.service';
@@ -10,7 +10,7 @@ import { PokedexService } from 'src/app/services/pokedex.service';
 })
 export class PokemonModalComponent implements OnInit {
 
-  title: string = '';
+  @Input('pokemon') pokemon!: PokemonClass;
 
   constructor(
     protected pokedex: PokedexService, 
@@ -18,6 +18,10 @@ export class PokemonModalComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  getBgColor(type:string){
+    return `var(--${type}-color)`
+  }
 
   async dismissModal(){
     return this.modalCtrl.dismiss(null, 'cancel');
